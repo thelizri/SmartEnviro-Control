@@ -7,6 +7,7 @@ import random  # Random number generator
 from machine import Pin, time_pulse_us  # Define pin
 import dht
 import lcd
+from secrets import *
 
 
 # BEGIN SETTINGS
@@ -16,23 +17,11 @@ TURNED_ON = True
 last_measurement = 0
 led = Pin("LED", Pin.OUT)  # led pin initialization for Raspberry Pi Pico W
 led.on()
-tempSensor = dht.DHT11(machine.Pin(16))     # DHT11 Constructor 
+tempSensor = dht.DHT11(machine.Pin(16))  # DHT11 Constructor
 fan = Pin(15, Pin.OUT)
 fan.value(1)
 
-# Wireless network
-WIFI_SSID = "KarlanRules"
-WIFI_PASS = "Mulghabat.9"  # No this is not our regular password. :)
-
-# Adafruit IO (AIO) configuration
-AIO_SERVER = "io.adafruit.com"
-AIO_PORT = 1883
-AIO_USER = "Karlan"
-AIO_KEY = "aio_MCIE74QamPjXaIUwkNAvINppaILK"
 AIO_CLIENT_ID = ubinascii.hexlify(machine.unique_id())  # Can be anything
-AIO_LIGHTS_FEED = "Karlan/feeds/lights"
-AIO_TEMPERATURE_FEED = "Karlan/feeds/temperature"
-AIO_HUMIDITY_FEED = "Karlan/feeds/humidity"
 
 # END SETTINGS
 
@@ -86,19 +75,25 @@ def get_temperature_and_humidity():
     humidity = tempSensor.humidity()
     return temperature, humidity
 
+
 def turn_on_fan():
     fan.value(0)
+
 
 def turn_off_fan():
     fan.value(1)
 
+
 def send_temperature(temperature):
-    print("Publishing: {0} to {1} ... ".format(temperature, AIO_TEMPERATURE_FEED), end="")
+    print(
+        "Publishing: {0} to {1} ... ".format(temperature, AIO_TEMPERATURE_FEED), end=""
+    )
     try:
         client.publish(topic=AIO_TEMPERATURE_FEED, msg=str(temperature))
         print("DONE")
     except Exception as e:
         print("FAILED")
+
 
 def send_humidity(humidity):
     print("Publishing: {0} to {1} ... ".format(humidity, AIO_HUMIDITY_FEED), end="")
