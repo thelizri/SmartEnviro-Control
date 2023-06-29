@@ -29,7 +29,6 @@ This project uses the following MicroPython libraries:
 - `machine`
 - `utime`
 - `RPI-PICO-I2C-LCD` (found [here](https://github.com/T-622/RPI-PICO-I2C-LCD))
-- `time`
 - `mqtt`
 - `ubinascii`
 
