@@ -12,9 +12,11 @@ from secrets import *
 
 # BEGIN SETTINGS
 # These need to be change to suit your environment
-MEASUREMENT_INTERVAL = 600000
+MEASUREMENT_INTERVAL = 60000
+LCD_INTERVAL = 10000
 TURNED_ON = True
 last_measurement = 0
+last_lcd_update = 0
 LED = Pin("LED", Pin.OUT)  # led pin initialization for Raspberry Pi Pico W
 LED.on()
 TEMP_HUMIDITY_SENSOR = dht.DHT11(machine.Pin(16))  # DHT11 Constructor
@@ -127,7 +129,6 @@ try:  # Code between try: and finally: may cause an error
     while True:  # Repeat this loop forever
         client.check_msg()  # Action a message if one is received. Non-blocking.
         temperature, humidity = get_temperature_and_humidity()
-        lcd.update_display(temperature, humidity)
         if (time.ticks_ms() - last_measurement) > MEASUREMENT_INTERVAL:
             if TURNED_ON:
                 if temperature > TEMPERATURE_THRESHOLD:
@@ -138,7 +139,10 @@ try:  # Code between try: and finally: may cause an error
             send_humidity(humidity)
             last_measurement = time.ticks_ms()
             print("------------------")
-        time.sleep(10)
+        if (time.ticks_ms() - last_lcd_update) > LCD_INTERVAL:
+            lcd.update_display(temperature, humidity)
+            last_lcd_update = time.ticks_ms()
+        time.sleep(0.01)
 
 finally:  # If an exception is thrown ...
     client.disconnect()  # ... disconnect the client and clean up.
