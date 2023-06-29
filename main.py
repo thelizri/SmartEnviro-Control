@@ -12,14 +12,15 @@ from secrets import *
 
 # BEGIN SETTINGS
 # These need to be change to suit your environment
-MEASUREMENT_INTERVAL = 10000
+MEASUREMENT_INTERVAL = 600000
 TURNED_ON = True
 last_measurement = 0
-led = Pin("LED", Pin.OUT)  # led pin initialization for Raspberry Pi Pico W
-led.on()
-tempSensor = dht.DHT11(machine.Pin(16))  # DHT11 Constructor
-fan = Pin(15, Pin.OUT)
-fan.value(1)
+LED = Pin("LED", Pin.OUT)  # led pin initialization for Raspberry Pi Pico W
+LED.on()
+TEMP_HUMIDITY_SENSOR = dht.DHT11(machine.Pin(16))  # DHT11 Constructor
+FAN = Pin(15, Pin.OUT)
+FAN.value(1)
+TEMPERATURE_THRESHOLD = 24
 
 AIO_CLIENT_ID = ubinascii.hexlify(machine.unique_id())  # Can be anything
 
@@ -59,10 +60,10 @@ def sub_cb(topic, msg):  # sub_cb means "callback subroutine"
     print((topic, msg))  # Outputs the message that was received. Debugging use.
     if msg == b"ON":  # If message says "ON" ...
         TURNED_ON = True
-        led.on()  # ... then LED on
+        LED.on()  # ... then LED on
     elif msg == b"OFF":  # If message says "OFF" ...
         TURNED_ON = False
-        led.off()  # ... then LED off
+        LED.off()  # ... then LED off
         turn_off_fan()
     else:  # If any other message is received ...
         print("Unknown message")  # ... do nothing but output that it happened.
@@ -70,18 +71,18 @@ def sub_cb(topic, msg):  # sub_cb means "callback subroutine"
 
 # Returns the temperature in celsius and the humidity
 def get_temperature_and_humidity():
-    tempSensor.measure()
-    temperature = tempSensor.temperature()
-    humidity = tempSensor.humidity()
+    TEMP_HUMIDITY_SENSOR.measure()
+    temperature = TEMP_HUMIDITY_SENSOR.temperature()
+    humidity = TEMP_HUMIDITY_SENSOR.humidity()
     return temperature, humidity
 
 
 def turn_on_fan():
-    fan.value(0)
+    FAN.value(0)
 
 
 def turn_off_fan():
-    fan.value(1)
+    FAN.value(1)
 
 
 def send_temperature(temperature):
@@ -129,7 +130,7 @@ try:  # Code between try: and finally: may cause an error
         lcd.update_display(temperature, humidity)
         if (time.ticks_ms() - last_measurement) > MEASUREMENT_INTERVAL:
             if TURNED_ON:
-                if temperature > 24:
+                if temperature > TEMPERATURE_THRESHOLD:
                     turn_on_fan()
                 else:
                     turn_off_fan()
