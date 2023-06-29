@@ -129,12 +129,12 @@ try:  # Code between try: and finally: may cause an error
     while True:  # Repeat this loop forever
         client.check_msg()  # Action a message if one is received. Non-blocking.
         temperature, humidity = get_temperature_and_humidity()
+        if TURNED_ON:
+            if temperature > TEMPERATURE_THRESHOLD:
+                turn_on_fan()
+            else:
+                turn_off_fan()
         if (time.ticks_ms() - last_measurement) > MEASUREMENT_INTERVAL:
-            if TURNED_ON:
-                if temperature > TEMPERATURE_THRESHOLD:
-                    turn_on_fan()
-                else:
-                    turn_off_fan()
             send_temperature(temperature)
             send_humidity(humidity)
             last_measurement = time.ticks_ms()
