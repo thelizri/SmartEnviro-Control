@@ -44,7 +44,7 @@ def do_connect():
         wlan.active(True)  # Activate network interface
         # set power mode to get WiFi power-saving off (if needed)
         wlan.config(pm=0xA11140)
-        wlan.connect("WIFI_SSID", "WIFI_PASS")  # Your WiFi Credential
+        wlan.connect(WIFI_SSID, WIFI_PASS)  # Your WiFi Credential
         print("Waiting for connection...", end="")
         # Check if it is connected otherwise wait
         while not wlan.isconnected() and wlan.status() >= 0:
