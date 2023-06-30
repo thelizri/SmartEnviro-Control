@@ -6,12 +6,12 @@ SmartEnviro-Control is an IoT-based environment monitoring and control system de
 
 ## Hardware Components
 
-- Raspberry Pi Pico W
-- DHT11 Temperature and Humidity Sensor
-- Relay Module
-- Desk Fan
-- 2x16 LCD Display
-- I2C Interface for LCD
+- [Raspberry Pi Pico W](https://www.electrokit.com/produkt/raspberry-pi-pico-wh/)
+- [DHT11 Temperature and Humidity Sensor](https://www.electrokit.com/produkt/digital-temperatur-och-fuktsensor-dht11/)
+- [5V Relay Module](https://www.electrokit.com/produkt/relamodul-5v/)
+- Generic Desk Fan
+- [2x16 LCD Display](https://www.electrokit.com/produkt/lcd-2x16-tecken-jhd162a-stn-gulgron-led/)
+- [I2C Interface for LCD](https://www.electrokit.com/produkt/i2c-interface-for-lcd/)
 
 ## Installation
 
