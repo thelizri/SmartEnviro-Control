@@ -34,7 +34,11 @@ This project uses the following MicroPython libraries:
 
 ## Usage
 
-1. Power on the Raspberry Pi Pico.
-2. The LCD display will show the current temperature and humidity levels.
-3. The fan will activate automatically when the temperature exceeds the predefined threshold.
-4. The system data will be pushed to your Adafruit IO account.
+1. Replace all the blanks in secrets.py with your credentials
+2. Power on the Raspberry Pi Pico.
+3. The LCD display will show the current temperature and humidity levels.
+4. The fan will activate automatically when the temperature exceeds the predefined threshold.
+5. The system data will be pushed to your Adafruit IO account.
+
+## Wiring
+![Wiring Diagram](https://github.com/thelizri/SmartEnviro-Control/blob/main/Wiring/Wiring_bb.png)
