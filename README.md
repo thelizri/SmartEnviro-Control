@@ -29,7 +29,6 @@ This project uses the following MicroPython libraries:
 - `machine`
 - `utime`
 - `RPI-PICO-I2C-LCD` (found [here](https://github.com/T-622/RPI-PICO-I2C-LCD))
-- `time`
 - `mqtt`
 - `ubinascii`
 
@@ -39,9 +38,3 @@ This project uses the following MicroPython libraries:
 2. The LCD display will show the current temperature and humidity levels.
 3. The fan will activate automatically when the temperature exceeds the predefined threshold.
 4. The system data will be pushed to your Adafruit IO account.
-
-## Contributing
-
-Contributions are welcome! Please feel free to share improvements, bug reports, or other forms of feedback.
-
----
