@@ -1,4 +1,4 @@
-# Project Name: SmartEnviro-Control
+# SmartEnviro-Control
 
 ## Description
 
