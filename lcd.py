@@ -1,5 +1,3 @@
-import utime
-
 import machine
 from machine import I2C
 from lcd_api import LcdApi
