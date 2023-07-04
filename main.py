@@ -58,8 +58,16 @@ def do_connect():
 
 # Callback Function to respond to messages from Adafruit IO
 def sub_cb(topic, msg):  # sub_cb means "callback subroutine"
-    global TURNED_ON
+    topic = str(topic)
     print((topic, msg))  # Outputs the message that was received. Debugging use.
+    if 'lights' in topic:
+        enable_fan(msg)
+    elif 'temperature-threshold' in topic:
+        change_temp_threshold(msg)
+
+
+def enable_fan(msg):
+    global TURNED_ON
     if msg == b"ON":  # If message says "ON" ...
         TURNED_ON = True
         LED.on()  # ... then LED on
@@ -69,6 +77,10 @@ def sub_cb(topic, msg):  # sub_cb means "callback subroutine"
         turn_off_fan()
     else:  # If any other message is received ...
         print("Unknown message")  # ... do nothing but output that it happened.
+
+def change_temp_threshold(msg):
+    global TEMPERATURE_THRESHOLD
+    TEMPERATURE_THRESHOLD = int(msg)
 
 
 # Returns the temperature in celsius and the humidity
@@ -120,7 +132,8 @@ client = MQTTClient(AIO_CLIENT_ID, AIO_SERVER, AIO_PORT, AIO_USER, AIO_KEY)
 client.set_callback(sub_cb)
 client.connect()
 client.subscribe(AIO_LIGHTS_FEED)
-print("Connected to %s, subscribed to %s topic" % (AIO_SERVER, AIO_LIGHTS_FEED))
+client.subscribe(AIO_TEMPERATURE_THRESHOLD_FEED)
+print("Connected to %s, subscribed to %s topic and %s topic" % (AIO_SERVER, AIO_LIGHTS_FEED, AIO_TEMPERATURE_THRESHOLD_FEED))
 
 
 try:  # Code between try: and finally: may cause an error
