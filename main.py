@@ -133,6 +133,8 @@ client.set_callback(sub_cb)
 client.connect()
 client.subscribe(AIO_LIGHTS_FEED)
 client.subscribe(AIO_TEMPERATURE_THRESHOLD_FEED)
+client.publish(topic=AIO_TEMPERATURE_THRESHOLD_FEED, msg=str(TEMPERATURE_THRESHOLD))
+client.publish(topic=AIO_LIGHTS_FEED, msg="ON")
 print("Connected to %s, subscribed to %s topic and %s topic" % (AIO_SERVER, AIO_LIGHTS_FEED, AIO_TEMPERATURE_THRESHOLD_FEED))
 
 
