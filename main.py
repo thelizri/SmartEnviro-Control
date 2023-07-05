@@ -31,8 +31,11 @@ AIO_CLIENT_ID = ubinascii.hexlify(machine.unique_id())  # Can be anything
 
 # FUNCTIONS
 
-
 # Function to connect Pico to the WiFi
+
+# This function is based on code by https://github.com/iot-lnu
+# Source: https://github.com/iot-lnu/applied-iot
+# Licensed under GNU GPL version 3
 def do_connect():
     import network
     from time import sleep

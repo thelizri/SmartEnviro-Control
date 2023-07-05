@@ -1,12 +1,6 @@
-#!/usr/bin/env python
-#
-# Copyright (c) 2019, Pycom Limited.
-#
-# This software is licensed under the GNU GPL version 3 or any
-# later version, with permitted additional terms. For more information
-# see the Pycom Licence v1.0 document supplied with this file, or
-# available at https://www.pycom.io/opensource/licensing
-#
+# This code is based on code by https://github.com/iot-lnu
+# Source: https://github.com/iot-lnu/applied-iot
+# Licensed under GNU GPL version 3
 
 import usocket as socket
 import ustruct as struct

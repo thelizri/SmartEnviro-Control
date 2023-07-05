@@ -1,3 +1,7 @@
+# This code is based on code by https://github.com/T-622
+# Source: https://github.com/T-622/RPI-PICO-I2C-LCD
+# Licensed under MIT License
+
 import utime
 import gc
 
