@@ -131,11 +131,11 @@ client = MQTTClient(AIO_CLIENT_ID, AIO_SERVER, AIO_PORT, AIO_USER, AIO_KEY)
 # Subscribed messages will be delivered to this callback
 client.set_callback(sub_cb)
 client.connect()
-client.subscribe(AIO_LIGHTS_FEED)
+client.subscribe(AIO_DESK_FAN_FEED)
 client.subscribe(AIO_TEMPERATURE_THRESHOLD_FEED)
 client.publish(topic=AIO_TEMPERATURE_THRESHOLD_FEED, msg=str(TEMPERATURE_THRESHOLD))
-client.publish(topic=AIO_LIGHTS_FEED, msg="ON")
-print("Connected to %s, subscribed to %s topic and %s topic" % (AIO_SERVER, AIO_LIGHTS_FEED, AIO_TEMPERATURE_THRESHOLD_FEED))
+client.publish(topic=AIO_DESK_FAN_FEED, msg="ON")
+print("Connected to %s, subscribed to %s topic and %s topic" % (AIO_SERVER, AIO_DESK_FAN_FEED, AIO_TEMPERATURE_THRESHOLD_FEED))
 
 
 try:  # Code between try: and finally: may cause an error
