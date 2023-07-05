@@ -3,7 +3,6 @@ from mqtt import MQTTClient  # For use of MQTT protocol to talk to Adafruit IO
 import ubinascii  # Conversions between binary data and various encodings
 import machine  # Interfaces with hardware components
 import micropython  # Needed to run any MicroPython code
-import random  # Random number generator
 from machine import Pin, time_pulse_us  # Define pin
 import dht
 import lcd
