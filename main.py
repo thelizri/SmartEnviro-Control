@@ -60,7 +60,7 @@ def do_connect():
 def sub_cb(topic, msg):  # sub_cb means "callback subroutine"
     topic = str(topic)
     print((topic, msg))  # Outputs the message that was received. Debugging use.
-    if 'lights' in topic:
+    if 'desk_fan' in topic:
         enable_fan(msg)
     elif 'temperature-threshold' in topic:
         change_temp_threshold(msg)
