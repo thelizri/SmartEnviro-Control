@@ -1,6 +1,9 @@
-# SmartEnviro-Control
+* Project Maker: William Carlstedt
+* Student Credentials: wc222br
 
 This tutorial offers step-by-step guidance to set up a temperature and humidity sensor that displays these metrics on an LCD display, and a desk fan that turns on automatically when the temperature goes above a certain threshold.
+
+This project can be finished in a few hours you have all the required materials. Maybe a few evenings if you're completely new to IoT.
 
 ## Objective
 
@@ -16,23 +19,33 @@ This project serves two major purposes:
 ## Material
 
 
-| Hardware | Description | Price and Link |
-| -------- | -------- | -------- |
-| Raspberry Pi Pico W     | Microcontroller for the project   | [109 kr](https://www.electrokit.com/produkt/raspberry-pi-pico-wh/)     |
-| DHT11   | Temperature and humidity sensor     | [49 kr](https://www.electrokit.com/produkt/digital-temperatur-och-fuktsensor-dht11/)     |
-| 5V Relay Module     | Used to turn on desk fan     | [39 kr](https://www.electrokit.com/produkt/relamodul-5v/)     |
-| 2x16 LCD Display     | Used to display temperature and humidity     | [99 kr](https://www.electrokit.com/produkt/lcd-2x16-tecken-jhd162a-stn-gulgron-led/)     |
-| I2C-Interface    | Interface for the LCD display. Makes it easier to connect everything.     | [39 kr](https://www.electrokit.com/produkt/i2c-interface-for-lcd/)     |
-| Generic Desk Fan | Regular desk fan | [199 kr](https://www.kjell.com/se/produkter/hem-fritid/flaktar-ac/bordsflaktar/rubicson-bordsflakt-o23-cm-p47013) |
-
+| Hardware | Description | Price and Link | Picture |
+| -------- | -------- | -------- | -------- |
+| Raspberry Pi Pico W     | Microcontroller for the project   | [109 kr](https://www.electrokit.com/produkt/raspberry-pi-pico-wh/)     | ![](https://hackmd.io/_uploads/ry6wHK4t3.jpg)
+ |
+| DHT11   | Temperature and humidity sensor     | [49 kr](https://www.electrokit.com/produkt/digital-temperatur-och-fuktsensor-dht11/)     | ![dht11](https://hackmd.io/_uploads/rJl5HFVth.jpg)
+ |
+| 5V Relay Module     | Used to turn on desk fan     | [39 kr](https://www.electrokit.com/produkt/relamodul-5v/)     | ![relay](https://hackmd.io/_uploads/S1thHFEt3.jpg)
+ |
+| 2x16 LCD Display     | Used to display temperature and humidity     | [99 kr](https://www.electrokit.com/produkt/lcd-2x16-tecken-jhd162a-stn-gulgron-led/)     | ![](https://hackmd.io/_uploads/SkrkIYEK2.jpg)
+ |
+| I2C-Interface    | Interface for the LCD display. Makes it easier to connect everything.     | [39 kr](https://www.electrokit.com/produkt/i2c-interface-for-lcd/)     | ![i2c](https://hackmd.io/_uploads/ByE-8FVK3.jpg)
+ |
+| Micro USB Cable | Needed to connect Pico W to computer| [39 kr](https://www.electrokit.com/en/product/usb-cable-a-male-microb-male-1-8m/) | ![](https://hackmd.io/_uploads/rJHEwtEFh.jpg)
+ | 
+ Generic Desk Fan | Desk fan | [199 kr](https://www.kjell.com/se/produkter/hem-fritid/flaktar-ac/bordsflaktar/rubicson-bordsflakt-o23-cm-p47013) | ![](https://hackmd.io/_uploads/H1PFUF4Y2.jpg)
+ |
+|
 
   
-| Miscellaneous Materials | Price and Link |
-| -------- | -------- |
-| Jumper Wires Female/Male| [29 kr](https://www.electrokit.com/en/product/jumper-wires-20-pin-30cm-female-male/)     |
-| Jumper Wires Male/Male| [29 kr](https://www.electrokit.com/en/product/jumper-wires-20-pin-30cm-male-male/)     |
-| Solderless Breadboard | [69 kr](https://www.electrokit.com/en/product/solderless-breadboard-840-tie-points-2/) |
-| Micro USB Cable | [39 kr](https://www.electrokit.com/en/product/usb-cable-a-male-microb-male-1-8m/) |
+| Miscellaneous Materials | Price and Link | Picture |
+| -------- | -------- | -------- |
+| Jumper Wires Female/Male| [29 kr](https://www.electrokit.com/en/product/jumper-wires-20-pin-30cm-female-male/)     | ![](https://hackmd.io/_uploads/HyOxDtNK2.jpg)
+ |
+| Jumper Wires Male/Male| [29 kr](https://www.electrokit.com/en/product/jumper-wires-20-pin-30cm-male-male/)     | ![](https://hackmd.io/_uploads/r1QGwFEY2.jpg)
+ |
+| Solderless Breadboard | [69 kr](https://www.electrokit.com/en/product/solderless-breadboard-840-tie-points-2/) | ![](https://hackmd.io/_uploads/B1ImPtVY3.jpg)
+ |
 
 ## Computer Setup
 
@@ -50,6 +63,12 @@ This project serves two major purposes:
 3. In Thonny, go to Tools > Options and select Interpreter.
 4. From the dropdown menu, select the MicroPython interpreter for Raspberry Pi Pico.
 
+### Uploading Code to Pico W
+
+1. Open Thonny
+2. Access the Pico's file system: Click on the "View" menu at the top, then select "Files". This will open a new section in Thonny that allows you to see the files on your Pico and your computer.
+3. Transfer Files: In the "Files" section, you'll see two panes - "This computer" and "MicroPython device". Navigate to the file on your computer that you want to copy to the Pico. Then, simply drag and drop the file from the "This computer" pane to the "MicroPython device" pane. The file should now be copied over to your Pico.
+
 ## Putting Everything Together
 
 First connect the I2C interface to the Raspberry Pi Pico on the breadboard. It should look something similar to this (but without the cables):
@@ -62,17 +81,10 @@ Next, you'll need to configure the power cable of your desk fan to connect with 
 
 Then finish by connecting everything that's left according to this wiring diagram: 
 
-![wiring-diagram](https://hackmd.io/_uploads/HJMFuNfFh.png)
+![wiring-diagram](https://hackmd.io/_uploads/rkRYNtVth.png)
+
 
 The relay's signal wire is connected to GPIO 15 and the DHT11's signal wire is connected to GPIO 16. The LCD display gets its power from the VBUS on the Pico because it needs 5 volts instead of 3 volts. You can find more information about the pinout of the Pico [here](https://datasheets.raspberrypi.com/picow/PicoW-A4-Pinout.pdf).
-
-Now the final step is just to download all the code from my Github repository [here](https://github.com/thelizri/SmartEnviro-Control/tree/main). And transfer all the code files over from your computer onto the Raspberry Pi Pico W. But I encourage you to try a write some of the code yourself. 
-
-To transfer the files:
-
-1. Open Thonny
-2. Access the Pico's file system: Click on the "View" menu at the top, then select "Files". This will open a new section in Thonny that allows you to see the files on your Pico and your computer.
-3. Transfer Files: In the "Files" section, you'll see two panes - "This computer" and "MicroPython device". Navigate to the file on your computer that you want to copy to the Pico. Then, simply drag and drop the file from the "This computer" pane to the "MicroPython device" pane. The file should now be copied over to your Pico.
 
 ## Platform
 
@@ -81,11 +93,11 @@ In this project, we require an IoT platform to house our project and manage the 
 * User-friendly interface: Adafruit IO is quite simple to navigate, making it ideal for beginners or smaller, DIY projects.
 * Real-time data streaming: This platform provides real-time data streaming and dashboards that can be customized to your needs.
 * API Support: It supports MQTT and REST APIs, which are useful for managing data.
-* Cost-effective: Adafruit IO is free to use up to a certain limit of data points per day. They also offer a paid plan for more extensive use.
+* Cost-effective: Adafruit IO is free to use up to 30 messages per minute. They also offer a paid plan for more extensive use.
 
 ## The Code
 
-All code can be found at my GitHub [repository](https://github.com/thelizri/SmartEnviro-Control/blob/main/main.py).
+All code can be found at my GitHub [repository](https://github.com/thelizri/SmartEnviro-Control/blob/main/main.py). I encourage you to try to write some of the code yourself and not just copy everything completely. You will learn a lot more that way.
 
 ### Connecting to WiFi
 
@@ -265,7 +277,7 @@ Here's a glimpse of the user interface on Adafruit IO. The dashboard comprises t
 
 Furthermore, it features two line charts that illustrate the change in temperature and humidity over a period of time, providing an overview of the environmental trends.
 
-The data, diligently recorded every minute by the Pi Pico, is seamlessly uploaded to the database, enabling real-time environmental monitoring.
+The data, diligently recorded every minute by the Pi Pico, is seamlessly uploaded to the database, enabling real-time environmental monitoring. Data for each feed is stored for 30 days.
 
 ![Dashboard](https://hackmd.io/_uploads/Syqv2lXY3.png)
 
