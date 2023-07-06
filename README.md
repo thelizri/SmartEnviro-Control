@@ -21,31 +21,20 @@ This project serves two major purposes:
 
 | Hardware | Description | Price and Link | Picture |
 | -------- | -------- | -------- | -------- |
-| Raspberry Pi Pico W     | Microcontroller for the project   | [109 kr](https://www.electrokit.com/produkt/raspberry-pi-pico-wh/)     | ![](https://hackmd.io/_uploads/ry6wHK4t3.jpg)
- |
-| DHT11   | Temperature and humidity sensor     | [49 kr](https://www.electrokit.com/produkt/digital-temperatur-och-fuktsensor-dht11/)     | ![dht11](https://hackmd.io/_uploads/rJl5HFVth.jpg)
- |
-| 5V Relay Module     | Used to turn on desk fan     | [39 kr](https://www.electrokit.com/produkt/relamodul-5v/)     | ![relay](https://hackmd.io/_uploads/S1thHFEt3.jpg)
- |
-| 2x16 LCD Display     | Used to display temperature and humidity     | [99 kr](https://www.electrokit.com/produkt/lcd-2x16-tecken-jhd162a-stn-gulgron-led/)     | ![](https://hackmd.io/_uploads/SkrkIYEK2.jpg)
- |
-| I2C-Interface    | Interface for the LCD display. Makes it easier to connect everything.     | [39 kr](https://www.electrokit.com/produkt/i2c-interface-for-lcd/)     | ![i2c](https://hackmd.io/_uploads/ByE-8FVK3.jpg)
- |
-| Micro USB Cable | Needed to connect Pico W to computer| [39 kr](https://www.electrokit.com/en/product/usb-cable-a-male-microb-male-1-8m/) | ![](https://hackmd.io/_uploads/rJHEwtEFh.jpg)
- | 
- Generic Desk Fan | Desk fan | [199 kr](https://www.kjell.com/se/produkter/hem-fritid/flaktar-ac/bordsflaktar/rubicson-bordsflakt-o23-cm-p47013) | ![](https://hackmd.io/_uploads/H1PFUF4Y2.jpg)
- |
-|
+| Raspberry Pi Pico W     | Microcontroller for the project   | [109 kr](https://www.electrokit.com/produkt/raspberry-pi-pico-wh/)     | ![](https://hackmd.io/_uploads/ry6wHK4t3.jpg) |
+| DHT11   | Temperature and humidity sensor     | [49 kr](https://www.electrokit.com/produkt/digital-temperatur-och-fuktsensor-dht11/)     | ![dht11](https://hackmd.io/_uploads/rJl5HFVth.jpg) |
+| 5V Relay Module     | Used to turn on desk fan     | [39 kr](https://www.electrokit.com/produkt/relamodul-5v/)     | ![relay](https://hackmd.io/_uploads/S1thHFEt3.jpg) |
+| 2x16 LCD Display     | Used to display temperature and humidity     | [99 kr](https://www.electrokit.com/produkt/lcd-2x16-tecken-jhd162a-stn-gulgron-led/)     | ![](https://hackmd.io/_uploads/SkrkIYEK2.jpg) |
+| I2C-Interface    | Interface for the LCD display. Makes it easier to connect everything.     | [39 kr](https://www.electrokit.com/produkt/i2c-interface-for-lcd/)     | ![i2c](https://hackmd.io/_uploads/ByE-8FVK3.jpg) |
+| Micro USB Cable | Needed to connect Pico W to computer| [39 kr](https://www.electrokit.com/en/product/usb-cable-a-male-microb-male-1-8m/) | ![](https://hackmd.io/_uploads/rJHEwtEFh.jpg) | 
+| Generic Desk Fan | Desk fan | [199 kr](https://www.kjell.com/se/produkter/hem-fritid/flaktar-ac/bordsflaktar/rubicson-bordsflakt-o23-cm-p47013) | ![](https://hackmd.io/_uploads/H1PFUF4Y2.jpg) |
 
   
 | Miscellaneous Materials | Price and Link | Picture |
 | -------- | -------- | -------- |
-| Jumper Wires Female/Male| [29 kr](https://www.electrokit.com/en/product/jumper-wires-20-pin-30cm-female-male/)     | ![](https://hackmd.io/_uploads/HyOxDtNK2.jpg)
- |
-| Jumper Wires Male/Male| [29 kr](https://www.electrokit.com/en/product/jumper-wires-20-pin-30cm-male-male/)     | ![](https://hackmd.io/_uploads/r1QGwFEY2.jpg)
- |
-| Solderless Breadboard | [69 kr](https://www.electrokit.com/en/product/solderless-breadboard-840-tie-points-2/) | ![](https://hackmd.io/_uploads/B1ImPtVY3.jpg)
- |
+| Jumper Wires Female/Male| [29 kr](https://www.electrokit.com/en/product/jumper-wires-20-pin-30cm-female-male/)     | ![](https://hackmd.io/_uploads/HyOxDtNK2.jpg) |
+| Jumper Wires Male/Male| [29 kr](https://www.electrokit.com/en/product/jumper-wires-20-pin-30cm-male-male/)     | ![](https://hackmd.io/_uploads/r1QGwFEY2.jpg) |
+| Solderless Breadboard | [69 kr](https://www.electrokit.com/en/product/solderless-breadboard-840-tie-points-2/) | ![](https://hackmd.io/_uploads/B1ImPtVY3.jpg) |
 
 ## Computer Setup
 
