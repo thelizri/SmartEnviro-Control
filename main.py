@@ -162,6 +162,7 @@ try:  # Code between try: and finally: may cause an error
         time.sleep(0.01)
 
 finally:  # If an exception is thrown ...
+    lcd.display_error()
     client.disconnect()  # ... disconnect the client and clean up.
     client = None
     print("Disconnected from Adafruit IO.")

@@ -15,3 +15,9 @@ def update_display(temperature, humidity):
     lcd.putstr(str(round(temperature, 1))+" Celsius")
     lcd.move_to(0, 1)
     lcd.putstr(str(round(humidity))+"% Humidity")
+
+def display_error():
+    lcd.clear()
+    lcd.putstr("Unknown error")
+    lcd.move_to(0,1)
+    lcd.putstr("Please reboot")
